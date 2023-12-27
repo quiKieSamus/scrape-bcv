@@ -1,8 +1,6 @@
 const express = require("express");
 const scrape = require("./scrape");
 const app = express();
-const db = require("./src/db/db");
-const databaseData = require("./src/databaseData");
 /**Cross Origin Resource Sharing
  * An http header that tells the server
  * which locations besides from the server can use
@@ -16,15 +14,12 @@ app.use(cors({
 
 app.get("/tasa", async (req, res) => {
     try {
-        let tasa = await scrape("https://bcv.org.ve");
+        let tasa = await scrape(`C:\\Users\\RUBEN\\chromium\\win64-1241081\\chrome-win\\chrome.exe`,
+            "https://bcv.org.ve/",
+            `/html/body/div[4]/div/div[2]/div/div[1]/div[1]/section[1]/div/div[2]/div/div[7]/div/div/div[2]/strong`);
         tasa = parseFloat(tasa.trim().replace(",", ".")).toFixed(2);
         res.json({ tasa: tasa });
     } catch (e) {
-        const moneda = await databaseData.getMonedas(db);
-        const bolivar = moneda.filter((item) => item.simbolo.toLowerCase() === 'bs');
-        res.json({ tasa: bolivar.factor, error: "No se obtuvo la tasa del bcv"});
-        res.end();
-    } finally {
         res.end();
     }
 });

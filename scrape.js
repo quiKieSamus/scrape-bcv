@@ -1,14 +1,15 @@
 const puppeteer = require("puppeteer");
 
-const scrape = (url) => {
+const scrape = (browserPath, url, xPath) => {
     return new Promise(async (resolve, reject) => {
         const browser = await puppeteer.launch({
-            executablePath: "C:/chrome-win/chrome.exe"
+            // chrome or chromium executable
+            executablePath: `${browserPath}`
         });
         const page = await browser.newPage();
         await page.goto(url);
 
-        const [el] = await page.$x('/html/body/div[4]/div/div[2]/div/div[1]/div[1]/section[1]/div/div[2]/div/div[7]/div/div/div[2]/strong');
+        const [el] = await page.$x(`${xPath}`);
         const value = await el.getProperty("textContent");
         const valueTxt = await value.jsonValue();
 
