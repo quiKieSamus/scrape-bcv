@@ -1,0 +1,9 @@
+{
+  "name": "@quikiesamus/scrape-bcv",
+  "version": "1.0.0",
+  "exports": "./main.ts",
+  "imports": {
+    "@b-fuze/deno-dom": "jsr:@b-fuze/deno-dom@^0.1.49"
+  },
+  "license": "MIT license"
+}
