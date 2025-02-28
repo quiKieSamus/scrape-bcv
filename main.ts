@@ -20,7 +20,7 @@ export enum Currency {
  * @returns {Promise<number>} Returns promise with the numeric value of the currency exchange value
  */
 export async function getCurrencyFromBCV(currency: Currency): Promise<number> {
-    const res = await fetch("http://bcv.org.ve");
+    const res = await fetch("https://bcv.org.ve");
     const text = await res.text();
     const dom = new DOMParser().parseFromString(text, "text/html");
 
