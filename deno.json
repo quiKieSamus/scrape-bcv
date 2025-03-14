@@ -1,10 +1,10 @@
 {
   "name": "@quikiesamus/scrape-bcv",
-  "version": "1.0.2",
+  "version": "1.1.2",
   "exports": "./main.ts",
   "imports": {
     "@b-fuze/deno-dom": "jsr:@b-fuze/deno-dom@^0.1.49"
   },
   "license": "MIT license",
-  "description": "Allows for getting currency through scraping values listed on the main page of the BCV's website"
+  "description": "Allows for getting currency by scraping values listed on the main page of the BCV's website"
 }
