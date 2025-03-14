@@ -14,7 +14,6 @@ export enum Currency {
 }
 
 /**
- *
  * @param currency Currency css selector
  * @returns {Promise<number>} Returns promise with the numeric value of the currency exchange value
  */
@@ -33,8 +32,6 @@ export async function getCurrencyFromBCV(currency: Currency): Promise<number> {
 }
 
 /**
- *
- * 
  * @returns {Promise <{ [x: string]: number }[]>} Returns promise with an array that holds objects with key-values of each currency
  */
 export async function getAllCurrenciesFromBCV(): Promise<{ [x: string]: number }[]> {
