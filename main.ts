@@ -26,9 +26,13 @@ export async function getCurrencyFromBCV(currency: Currency): Promise<number> {
 
   if (!el) throw new Error("Dollar element not found.");
 
-  return Number(
-    el.children[0].children[0].children[1].children[0].textContent.trim().replace(",", ".")
-  );
+  const numberStringSplitted = el.children[0].children[0].children[1].children[0].textContent.trim().split(",");
+  const integerSection = Number(numberStringSplitted[0].replace(".", ""));
+  const decimalSection = Number("0." + numberStringSplitted[1]);
+
+  const number = integerSection + decimalSection;
+
+  return number;
 }
 
 /**
@@ -44,8 +48,12 @@ export async function getAllCurrenciesFromBCV(): Promise<{ [x: string]: number }
 
     if (!el) throw new Error("Dollar element not found.");
 
+    const numberStringSplitted = el.children[0].children[0].children[1].children[0].textContent.trim().split(",");
+    const integerSection = Number(numberStringSplitted[0].replace(".", ""));
+    const decimalSection = Number("0." + numberStringSplitted[1]);
+
     return {
-      [element[0]]: Number(el.children[0].children[0].children[1].children[0].textContent.trim().replace(",", ".")),
+      [element[0]]: integerSection + decimalSection,
     };
   });
 }

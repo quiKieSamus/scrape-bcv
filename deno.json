@@ -2,6 +2,9 @@
   "name": "@quikiesamus/scrape-bcv",
   "version": "1.1.2",
   "exports": "./main.ts",
+  "tasks": {
+    "test": "deno test --allow-net --unsafely-ignore-certificate-errors=bcv.org.ve test.ts"
+  },
   "imports": {
     "@b-fuze/deno-dom": "jsr:@b-fuze/deno-dom@^0.1.49"
   },
