@@ -1,6 +1,6 @@
 {
   "name": "@quikiesamus/scrape-bcv",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "exports": "./main.ts",
   "tasks": {
     "test": "deno test --allow-net --unsafely-ignore-certificate-errors=bcv.org.ve test.ts"
